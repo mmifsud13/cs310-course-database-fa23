@@ -29,7 +29,13 @@ public class SectionDAO {
             
             if (conn.isValid(0)) {
                 
-                // INSERT YOUR CODE HERE
+            String query = "SELECT * FROM section WHERE termid = ? AND subjectid = ? AND num = ?";
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, termid);
+            ps.setString(2, subjectid);
+            ps.setString(3, num);
+            rs = ps.executeQuery();
+            result = DAOUtility.getResultSetAsJson(rs);
                 
             }
             
